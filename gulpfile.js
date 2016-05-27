@@ -7,7 +7,7 @@ gulp.task('default', function(cb){
 });
 
 gulp.task('angular', function(cb){
-    exec('(cd angular.js && ng serve)',function(err){
+    exec('(cd angular.js && ng serve --port 8080 )',function(err){
 		if (err) return cb(err); // return error
 	});	
 });

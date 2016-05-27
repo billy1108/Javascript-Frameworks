@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "main.js",
+  "scripts":{
+    "start": "(npm i -g http-server) && (npm i -g gulp-cli) && (npm i -g angular-cli) && (cd angular.js/ && npm install) && (cd aurelia.js/ && npm install) "
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/billy1108/Javascript-Frameworks.git"
