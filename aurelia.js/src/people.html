@@ -1,0 +1,29 @@
+<template>
+  <section>
+    <h2>${heading}</h2>
+
+    <!-- List items with avatar and action -->
+    <style>
+    .demo-list-action {
+      width: 300px;
+    }
+    </style>
+
+    <div class="demo-list-action mdl-list">
+      <div repeat.for="user of users" class="mdl-list__item">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-avatar">person</i>
+          <span>${user.email}</span>
+        </span>
+       
+      </div>
+    </div>
+    
+        <!-- FAB button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" click.delegate="moreUsers()">
+      <i class="material-icons">add</i>
+    </button>
+
+    
+  </section>
+</template>

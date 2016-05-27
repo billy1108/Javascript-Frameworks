@@ -1,37 +1,36 @@
 <template>
-  <require from="bootstrap/css/bootstrap.css"></require>
-  <require from="font-awesome/css/font-awesome.css"></require>
-
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">
-        <i class="fa fa-home"></i>
-        <span>${router.title}</span>
-      </a>
+  <!--<require from="bootstrap/css/bootstrap.css"></require>-->
+  <!--<require from="font-awesome/css/font-awesome.css"></require>-->
+  
+  <!-- Always shows a header, even in smaller screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">${router.title}</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a repeat.for="row of router.navigation" class="mdl-navigation__link" href.bind="row.href">
+            ${row.title}
+          </a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a repeat.for="row of router.navigation" class="mdl-navigation__link" href.bind="row.href">
+          ${row.title}
+        </a>
+      </nav>
     </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-          <a href.bind="row.href">${row.title}</a>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="loader" if.bind="router.isNavigating">
-          <i class="fa fa-spinner fa-spin fa-2x"></i>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="page-host">
-    <router-view></router-view>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <router-view></router-view>
+      </div>
+    </main>
   </div>
+
 </template>

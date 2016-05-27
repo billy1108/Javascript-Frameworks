@@ -1,3 +1,7 @@
 # How to run
 
-> gulp --springboot --aurelia
+> npm install
+
+> gulp angular
+
+> gulp aurelia
